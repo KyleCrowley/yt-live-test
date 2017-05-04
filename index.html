@@ -1,0 +1,13 @@
+<html>
+<body>
+<p id='live'></p>
+<script>
+  var HOST = location.origin.replace(/^http/, 'ws')
+  var ws = new WebSocket(HOST + '/live');
+  var el = document.getElementById('live');
+  ws.onmessage = function (event) {
+    el.innerHTML = 'LIVE: ' + event.data;
+  };
+</script>
+</body>
+</html>
